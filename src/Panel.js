@@ -1,9 +1,19 @@
 import React from "react";
 import "./Panel.css";
+import PizzaPanel from "./pizzaPanel/PizzaPanel";
 const Panel = () => {
   return (
     <div className="panel-container">
-      <h2>XD</h2>
+      <PizzaPanel />
+      <PizzaPanel />
+      <PizzaPanel />
+      <PizzaPanel />
+      <PizzaPanel />
+      <PizzaPanel />
+      <PizzaPanel />
+      <PizzaPanel />
+      <PizzaPanel />
+      <PizzaPanel />
     </div>
   );
 };

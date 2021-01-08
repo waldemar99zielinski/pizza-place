@@ -1,9 +1,16 @@
 .panel-container {
-  background: var(--black-main);
   max-width: 1200px;
   margin: 0 auto;
-  display: flex;
+  padding: 1rem;
+  border-radius: 0.5rem;
   align-items: center;
   justify-content: space-between;
-  height: auto;
+
+  --auto-grid-min-size: 16rem;
+  display: grid;
+  grid-template-columns: repeat(
+    auto-fill,
+    minmax(var(--auto-grid-min-size), 1fr)
+  );
+  grid-gap: 1rem;
 }
