@@ -6,10 +6,13 @@
   flex-direction: column;
   align-items: center;
   margin: 0.5rem;
+  height: 90%;
 }
 .pizza-container:hover {
   background-color: rgba(0, 0, 0, 1);
+  border-radius: 0.5rem;
   cursor: pointer;
+  box-shadow: 2px 2px 10px var(--white-main);
 }
 .pizza-container:hover h2 {
   background-color: rgba(0, 0, 0, 1);
@@ -27,10 +30,17 @@
   justify-content: center;
   overflow: hidden;
 }
+.pizza-photo-container {
+  height: 80%;
+  overflow: hidden;
+}
 .pizza-photo {
   border-top-right-radius: 0.5rem;
   border-top-left-radius: 0.5rem;
   width: 100%;
+  height: 100%;
+
+  object-fit: cover;
 }
 .pizza-info-container {
   width: 100%;
