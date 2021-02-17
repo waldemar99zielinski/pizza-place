@@ -1,7 +1,7 @@
 import React from "react";
 import "./Panel.css";
 import PizzaOverView from "./pizzaPanel/PizzaOverView";
-import PizzaPopUp from "./pizzaPanel/PizzaPopUp";
+import PizzaPopUp from "./cart/PizzaPopUp";
 const data = [
   {
     id: 1,
