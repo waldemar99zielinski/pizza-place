@@ -5,12 +5,16 @@ const OrderedPizzaListElement = (props) => {
   return (
     <>
       <div className="order-table-cell">
-        <h3>{props.name}</h3>
+        <h2>{props.name}</h2>
       </div>
-      <div className="order-table-cell">{props.additionalTopping}</div>
-      <div className="order-table-cell">{props.price}</div>
       <div className="order-table-cell">
-        <strong>DELETE</strong>
+        <h3>{props.additionalTopping}</h3>
+      </div>
+      <div className="order-table-cell">
+        <h3> {props.price}</h3>
+      </div>
+      <div className="order-table-cell">
+        <h3>DELETE</h3>
       </div>
     </>
   );
