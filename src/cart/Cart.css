@@ -17,9 +17,12 @@
   color: var(--white-main);
 }
 .order-table-cell {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   box-sizing: border-box;
   flex-grow: 1;
-  width: 25%;
+  width: 20%;
   padding: 0.8em 1.2em;
   overflow: hidden;
   list-style: none;
@@ -35,6 +38,9 @@
 
   padding: 0.5rem;
   transition: all 0.2s ease;
+}
+.change-number-bnt {
+  padding: 0rem 1rem;
 }
 .delete-order-bnt:hover {
   color: white;
@@ -53,12 +59,15 @@
     width: 100% !important;
     border: none;
   }
-  .order-table-cell:nth-child(4n) {
+  .head {
+    justify-content: left;
+  }
+  .order-table-cell:nth-child(5n) {
     width: 100% !important;
     border-bottom: solid white;
   }
 
-  .order-table-cell h3 {
+  /* .order-table-cell h3 {
     margin-left: 40%;
-  }
+  } */
 }

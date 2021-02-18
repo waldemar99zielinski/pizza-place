@@ -8,6 +8,9 @@ const OrderConfirmation = (props) => {
         <h2> </h2>
       </div>
       <div className="order-table-cell sum-up">
+        <h2> </h2>
+      </div>
+      <div className="order-table-cell sum-up">
         <h3>total cost</h3>
       </div>
       <div className="order-table-cell">

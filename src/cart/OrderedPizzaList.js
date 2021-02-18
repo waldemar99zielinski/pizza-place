@@ -8,14 +8,16 @@ const OrderedPizzaList = ({ pizzaOrders }) => {
       {pizzaOrders.map((pizza) => {
         const id = pizza.pizza_code;
         const name = pizza.name || "pizzaName";
-        const additionalTopping = pizza.additionalTopping || "none";
+        const extraTopping = pizza.extraTopping || "none";
+        const numberOfPizzas = pizza.numberOfPizzas || 69;
         const price = pizza.price || "none";
         return (
           <OrderedPizzaListElement
             id={id}
             name={name}
-            additionalTopping={additionalTopping}
-            price={price}
+            extraTopping={extraTopping}
+            numberOfPizzas={numberOfPizzas}
+            price={price + " USD"}
           />
         );
       })}
