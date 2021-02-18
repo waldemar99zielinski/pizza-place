@@ -1,7 +1,8 @@
 import React from "react";
 import "./Panel.css";
 import PizzaOverView from "./pizzaPanel/PizzaOverView";
-import PizzaPopUp from "./cart/PizzaPopUp";
+import Cart from "./cart/Cart";
+import PizzaOrderPanel from "./PizzaOrderPanel/PizzaOrderPanel";
 const data = [
   {
     id: 1,
@@ -65,7 +66,9 @@ const Panel = () => {
     <div>
       <div className="panel-container">
         <PizzaOverView data={data} />
-        <PizzaPopUp />
+
+        {/* <Cart /> */}
+        <PizzaOrderPanel />
       </div>
     </div>
   );

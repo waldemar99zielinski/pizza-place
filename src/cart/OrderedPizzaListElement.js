@@ -14,7 +14,7 @@ const OrderedPizzaListElement = (props) => {
         <h3> {props.price}</h3>
       </div>
       <div className="order-table-cell">
-        <h3>DELETE</h3>
+        <h3 className="delete-order-bnt">DELETE</h3>
       </div>
     </>
   );
