@@ -7,6 +7,7 @@ const PizzaOverView = ({ data }) => {
       {data.map((pizza) => {
         return (
           <PizzaPanel
+            key={pizza.id}
             id={pizza.id}
             name={pizza.name}
             rating={pizza.rating}

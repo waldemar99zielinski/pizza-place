@@ -1,9 +1,24 @@
 import React from "react";
 import "./PizzaPanel.css";
 import { AiFillStar } from "react-icons/ai";
+
+//redux
+import { connect } from "react-redux";
+import { addOrderElement } from "../redux/actions";
+
 const PizzaPanel = (props) => {
+  const handleAddOrderElement = () => {
+    props.addOrderElement(props.id);
+  };
+
   return (
-    <div className="pizza-container" onClick={() => console.log("clicked")}>
+    <div
+      className="pizza-container"
+      onClick={() => {
+        console.log("clicked");
+        handleAddOrderElement();
+      }}
+    >
       <div className="pizza-photo-container">
         <img src={props.photo} alt="pizza" className="pizza-photo" />
       </div>
@@ -23,4 +38,4 @@ const PizzaPanel = (props) => {
   );
 };
 
-export default PizzaPanel;
+export default connect(null, { addOrderElement })(PizzaPanel);

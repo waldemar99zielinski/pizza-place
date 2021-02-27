@@ -29,14 +29,14 @@ const data = [
   },
 
   {
-    id: 1,
+    id: 4,
     name: "Wiejska",
     rating: 4.3,
     price: 12,
     photo: "https://assets.puzzlefactory.pl/puzzle/238/423/original.jpg",
   },
   {
-    id: 2,
+    id: 5,
     name: "owoce morza",
     rating: 3.0,
     price: 25,
@@ -44,7 +44,7 @@ const data = [
       "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c0/Pizza_with_tomatoes.jpg/1200px-Pizza_with_tomatoes.jpg",
   },
   {
-    id: 3,
+    id: 6,
     name: "Wiejska",
     rating: 4.3,
     price: 12,
@@ -52,7 +52,7 @@ const data = [
       "https://www.mojegotowanie.pl/uploads/media/recipe/0001/100/pizza-z-kurczakiem.jpeg",
   },
   {
-    id: 4,
+    id: 7,
     name: "Wiejska",
     rating: 4.3,
     price: 12,
@@ -67,7 +67,7 @@ const Panel = () => {
       <div className="panel-container">
         <PizzaOverView data={data} />
 
-        <Cart />
+        {/* <Cart /> */}
       </div>
     </div>
   );
