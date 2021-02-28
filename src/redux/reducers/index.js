@@ -1,4 +1,4 @@
 import { combineReducers } from "redux";
-import pizzaPanel from "./pizzaPanel";
-
-export default combineReducers({ pizzaPanel });
+import orderManagement from "./orderManagement";
+import cartPopUp from "./cartPopUp";
+export default combineReducers({ orderManagement, cartPopUp });

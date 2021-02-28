@@ -1,14 +1,15 @@
-import { ADD_ORDER_ELEMENT } from "../constants/actionTypes";
+import { TOGGLE_CART } from "../constants/actionTypes";
 
-const initialState = { allIds: [] };
+const initialState = { isCartOpened: false };
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
-    case ADD_ORDER_ELEMENT:
+    case TOGGLE_CART: {
       return {
         ...state,
-        allIds: [...state.allIds, action.payload],
+        isCartOpened: !state.isCartOpened,
       };
+    }
     default:
       return state;
   }

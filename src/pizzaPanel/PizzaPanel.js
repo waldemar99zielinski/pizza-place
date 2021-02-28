@@ -4,7 +4,7 @@ import { AiFillStar } from "react-icons/ai";
 
 //redux
 import { connect } from "react-redux";
-import { addOrderElement } from "../redux/actions";
+import { addOrderElement } from "../redux/actions/orderManagement";
 
 const PizzaPanel = (props) => {
   const handleAddOrderElement = () => {

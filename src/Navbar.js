@@ -3,11 +3,16 @@ import "./Navbar.css";
 import logo from "./pizza_logo.svg";
 import { BiMenu } from "react-icons/bi";
 import { NavLink } from "react-router-dom";
-const Navbar = () => {
+//redux
+import { connect } from "react-redux";
+import { toggleCart } from "./redux/actions/cartPopUp";
+
+const Navbar = ({ toggleCart }) => {
   const [isMenuShown, setIsMenuShown] = useState(false);
   const toggleMenu = () => {
     setIsMenuShown(!isMenuShown);
   };
+
   return (
     <nav>
       <div className="nav-container">
@@ -33,9 +38,7 @@ const Navbar = () => {
               </NavLink>
             </li>
             <li>
-              <NavLink className="nav-link" to="/">
-                Page2
-              </NavLink>
+              <BiMenu size={40} className="nav-link" onClick={toggleCart} />
             </li>
           </ul>
         </div>
@@ -44,4 +47,4 @@ const Navbar = () => {
   );
 };
 
-export default Navbar;
+export default connect(null, { toggleCart })(Navbar);
