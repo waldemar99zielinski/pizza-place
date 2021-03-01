@@ -1,16 +1,22 @@
 import React, { useState } from "react";
 import "./Navbar.css";
 import logo from "./pizza_logo.svg";
-import { BiMenu } from "react-icons/bi";
+import { BiMenu, BiCartAlt } from "react-icons/bi";
 import { NavLink } from "react-router-dom";
 //redux
 import { connect } from "react-redux";
-import { toggleCart } from "./redux/actions/cartPopUp";
+import { openPopUp } from "./redux/actions/popUp";
+import { POPUP_ID_CART } from "./redux/constants/popUpIds";
 
-const Navbar = ({ toggleCart }) => {
+const Navbar = ({ openPopUp }) => {
   const [isMenuShown, setIsMenuShown] = useState(false);
   const toggleMenu = () => {
     setIsMenuShown(!isMenuShown);
+  };
+
+  const openCartHandle = () => {
+    // console.log("Navbar: cart toggle");
+    openPopUp(POPUP_ID_CART);
   };
 
   return (
@@ -21,6 +27,7 @@ const Navbar = ({ toggleCart }) => {
           <h1>PIZZA PLACE </h1>
           <BiMenu size={40} className="nav-toggle" onClick={toggleMenu} />
         </div>
+
         <div
           className={
             isMenuShown ? "nav-links-container" : "nav-links-container hide"
@@ -38,7 +45,11 @@ const Navbar = ({ toggleCart }) => {
               </NavLink>
             </li>
             <li>
-              <BiMenu size={40} className="nav-link" onClick={toggleCart} />
+              <BiCartAlt
+                size={40}
+                className="nav-link"
+                onClick={() => openCartHandle()}
+              />
             </li>
           </ul>
         </div>
@@ -47,4 +58,4 @@ const Navbar = ({ toggleCart }) => {
   );
 };
 
-export default connect(null, { toggleCart })(Navbar);
+export default connect(null, { openPopUp })(Navbar);

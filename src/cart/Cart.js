@@ -7,8 +7,7 @@ import OrderedPizzaList from "./OrderedPizzaList";
 import OrderConfirmation from "./OrderConfirmation";
 
 //redux
-import { connect } from "react-redux";
-import { getIsCartPopUpOpen } from "../redux/selectors/cartPopUp";
+import { POPUP_ID_CART } from "../redux/constants/popUpIds";
 
 const data = [
   {
@@ -35,16 +34,11 @@ const data = [
 ];
 const Cart = (props) => {
   return (
-    <PopUp title={"YOUR CART"} isDisplayed={props.isCartOpened}>
+    <PopUp title={"YOUR CART"} id={POPUP_ID_CART}>
       <OrderedPizzaList pizzaOrders={data} />
       <OrderConfirmation totalPrice={12.69 + " USD"} />
     </PopUp>
   );
 };
 
-const mapStateToProps = (store) => {
-  const isCartOpened = getIsCartPopUpOpen(store);
-  return { isCartOpened };
-};
-
-export default connect(mapStateToProps)(Cart);
+export default Cart;
