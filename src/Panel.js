@@ -33,7 +33,8 @@ const data = [
     name: "Wiejska",
     rating: 4.3,
     price: 12,
-    photo: "https://assets.puzzlefactory.pl/puzzle/238/423/original.jpg",
+    photo:
+      "https://res.cloudinary.com/glovoapp/w_1200,f_auto,q_auto/Stores/cfodyj4pe8qpaxz6ngw6",
   },
   {
     id: 5,
@@ -41,7 +42,7 @@ const data = [
     rating: 3.0,
     price: 25,
     photo:
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c0/Pizza_with_tomatoes.jpg/1200px-Pizza_with_tomatoes.jpg",
+      "https://assets.blog.foodnetwork.ca/wp-content/uploads/sites/6/2016/04/hawaiian-pizza.jpg",
   },
   {
     id: 6,
@@ -66,8 +67,6 @@ const Panel = () => {
     <div>
       <div className="panel-container">
         <PizzaOverView data={data} />
-
-        {/* <Cart /> */}
       </div>
     </div>
   );
