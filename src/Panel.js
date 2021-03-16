@@ -1,75 +1,30 @@
-import React from "react";
+import React, { useEffect } from "react";
+//redux
+import { connect, useDispatch } from "react-redux";
+import { fetchPizzas } from "./redux/actions/pizza";
 import "./Panel.css";
+
+//components
 import PizzaOverView from "./pizzaPanel/PizzaOverView";
-import Cart from "./cart/Cart";
 
-const data = [
-  {
-    id: 1,
-    name: "Wiejska",
-    rating: 4.3,
-    price: 12,
-    photo: "https://assets.puzzlefactory.pl/puzzle/238/423/original.jpg",
-  },
-  {
-    id: 2,
-    name: "owoce morza",
-    rating: 3.0,
-    price: 25,
-    photo:
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c0/Pizza_with_tomatoes.jpg/1200px-Pizza_with_tomatoes.jpg",
-  },
-  {
-    id: 3,
-    name: "Wiejska",
-    rating: 4.3,
-    price: 12,
-    photo:
-      "https://www.mojegotowanie.pl/uploads/media/recipe/0001/100/pizza-z-kurczakiem.jpeg",
-  },
-
-  {
-    id: 4,
-    name: "Wiejska",
-    rating: 4.3,
-    price: 12,
-    photo:
-      "https://res.cloudinary.com/glovoapp/w_1200,f_auto,q_auto/Stores/cfodyj4pe8qpaxz6ngw6",
-  },
-  {
-    id: 5,
-    name: "owoce morza",
-    rating: 3.0,
-    price: 25,
-    photo:
-      "https://assets.blog.foodnetwork.ca/wp-content/uploads/sites/6/2016/04/hawaiian-pizza.jpg",
-  },
-  {
-    id: 6,
-    name: "Wiejska",
-    rating: 4.3,
-    price: 12,
-    photo:
-      "https://www.mojegotowanie.pl/uploads/media/recipe/0001/100/pizza-z-kurczakiem.jpeg",
-  },
-  {
-    id: 7,
-    name: "Wiejska",
-    rating: 4.3,
-    price: 12,
-    photo: "https://assets.puzzlefactory.pl/puzzle/238/423/original.jpg",
-  },
-];
-
-const Panel = () => {
-  console.log();
+const Panel = (props) => {
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(fetchPizzas());
+  }, [dispatch]);
   return (
     <div>
       <div className="panel-container">
-        <PizzaOverView data={data} />
+        {console.log("Panel ", props.pizza)}
+        <PizzaOverView data={props.pizza.data.data} />
       </div>
     </div>
   );
 };
 
-export default Panel;
+const mapStateToProps = (state) => {
+  const pizza = state.pizza;
+  return { pizza };
+};
+
+export default connect(mapStateToProps)(Panel);

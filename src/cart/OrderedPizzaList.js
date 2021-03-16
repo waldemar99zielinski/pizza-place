@@ -5,19 +5,18 @@ import OrderedPizzaListElement from "./OrderedPizzaListElement";
 const OrderedPizzaList = ({ pizzaOrders }) => {
   return (
     <div className="order-table">
-      {pizzaOrders.map((pizza) => {
-        const id = pizza.pizza_code;
-        const name = pizza.name || "pizzaName";
-        const extraTopping = pizza.extraTopping || "none";
-        const numberOfPizzas = pizza.numberOfPizzas || 69;
-        const price = pizza.price || "none";
+      {pizzaOrders.map((order) => {
+        const id = order.pizza_code;
+        const extraTopping = order.extraTopping || "none";
+        const numberOfPizzas = order.numberOf || 69;
+        const size = order.size || null;
         return (
           <OrderedPizzaListElement
+            key={id}
             id={id}
-            name={name}
             extraTopping={extraTopping}
             numberOfPizzas={numberOfPizzas}
-            price={price + " USD"}
+            size={size}
           />
         );
       })}

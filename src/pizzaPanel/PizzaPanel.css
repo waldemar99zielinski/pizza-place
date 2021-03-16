@@ -1,3 +1,20 @@
+.panel-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  align-items: center;
+  justify-content: space-between;
+
+  --auto-grid-min-size: 16rem;
+  display: grid;
+  grid-template-columns: repeat(
+    auto-fill,
+    minmax(var(--auto-grid-min-size), 1fr)
+  );
+  grid-gap: 1rem;
+}
+
 .pizza-container {
   background-color: rgba(0, 0, 0, 0.7);
 

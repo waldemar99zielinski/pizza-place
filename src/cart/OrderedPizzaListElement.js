@@ -1,8 +1,10 @@
 import React from "react";
 
-import ExtraToppingsSelect from "./ExtraToppingsSelect";
-
 import "./Cart.css";
+import priceToDisplay from "../utils/priceToDisplay";
+//redux
+import { connect } from "react-redux";
+import { getPizzaById } from "../redux/selectors/pizza";
 
 const data = [
   {
@@ -24,13 +26,34 @@ const data = [
 ];
 
 const OrderedPizzaListElement = (props) => {
+  const pizza = props.pizza[0] || {
+    name: "null",
+    extraTopping: [null],
+
+    price: -1,
+  };
+  const price = props.size
+    ? props.size === "S"
+      ? pizza.price_small
+      : pizza.price_big
+    : null;
   return (
     <>
+      {console.log("OorederPizzaListElemetn: ", props.pizza)}
+
       <div className="order-table-cell head">
-        <h2>{props.name}</h2>
+        <h2>{pizza.name}</h2>
       </div>
       <div className="order-table-cell">
-        <ExtraToppingsSelect extraToppings={data} />
+        <select>
+          {data.map((extraTopping) => {
+            return (
+              <option value={extraTopping.extra_topping_code}>
+                {extraTopping.name}
+              </option>
+            );
+          })}
+        </select>
       </div>
       <div className="order-table-cell">
         <h2>{props.numberOfPizzas}</h2>
@@ -38,7 +61,7 @@ const OrderedPizzaListElement = (props) => {
         <h2 className="delete-order-bnt change-number-bnt">-</h2>
       </div>
       <div className="order-table-cell">
-        <h3> {props.price}</h3>
+        <h3> {priceToDisplay(price)}</h3>
       </div>
       <div className="order-table-cell">
         <h3 className="delete-order-bnt">DELETE</h3>
@@ -47,4 +70,11 @@ const OrderedPizzaListElement = (props) => {
   );
 };
 
-export default OrderedPizzaListElement;
+const mapStateToProps = (state, ownProps) => {
+  const id = ownProps.id;
+  const pizza = getPizzaById(state, id);
+
+  return { pizza };
+};
+
+export default connect(mapStateToProps)(OrderedPizzaListElement);

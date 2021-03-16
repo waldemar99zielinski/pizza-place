@@ -4,11 +4,11 @@ import { AiFillStar } from "react-icons/ai";
 
 //redux
 import { connect } from "react-redux";
-import { addOrderElement } from "../redux/actions/orderManagement";
+import { addPizzaOrder } from "../redux/actions/order";
 
 const PizzaPanel = (props) => {
   const handleAddOrderElement = () => {
-    props.addOrderElement(props.id);
+    props.addPizzaOrder(props.id, null, "S", 1);
   };
 
   return (
@@ -20,17 +20,17 @@ const PizzaPanel = (props) => {
       }}
     >
       <div className="pizza-photo-container">
-        <img src={props.photo} alt="pizza" className="pizza-photo" />
+        <img src={props.image} alt="pizza" className="pizza-photo" />
       </div>
 
       <h2>{props.name.toUpperCase()}</h2>
       <div className="pizza-info-container">
         <div className="pizza-rating">
-          <h3>{props.rating}</h3>
-          <AiFillStar />
+          <h3>S: {props.price_small / 100}</h3>
+          <h3>usd</h3>
         </div>
         <div className="pizza-prize">
-          <h3>{props.price}</h3>
+          <h3>L: {props.price_big / 100}</h3>
           <h3>zl</h3>
         </div>
       </div>
@@ -38,4 +38,4 @@ const PizzaPanel = (props) => {
   );
 };
 
-export default connect(null, { addOrderElement })(PizzaPanel);
+export default connect(null, { addPizzaOrder })(PizzaPanel);
