@@ -15,7 +15,7 @@ const PizzaPanel = (props) => {
     <div
       className="pizza-container"
       onClick={() => {
-        console.log("clicked");
+        // console.log("clicked");
         handleAddOrderElement();
       }}
     >
