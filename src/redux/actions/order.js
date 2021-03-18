@@ -3,6 +3,8 @@ import {
   REMOVE_PIZZA_ORDER,
   INCRESE_NUMBER_OF_PIZZA_IN_ORDER,
   DECREASE_NUMBER_OF_PIZZA_IN_ORDER,
+  SET_EXTRA_TOPPINGS,
+  SET_SIZE,
 } from "../constants/actionTypes";
 
 export const addPizzaOrder = (
@@ -39,5 +41,21 @@ export const decreaseNumberOfPizzaInOrder = (pizza_code, decreaseNumber) => ({
   payload: {
     pizza_code,
     decreaseNumber,
+  },
+});
+
+export const setExtraToppings = (pizza_code, extra_topping_code) => ({
+  type: SET_EXTRA_TOPPINGS,
+  payload: {
+    pizza_code,
+    extra_topping_code,
+  },
+});
+
+export const setSize = (pizza_code, size) => ({
+  type: SET_SIZE,
+  payload: {
+    pizza_code,
+    size,
   },
 });

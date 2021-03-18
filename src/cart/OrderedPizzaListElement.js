@@ -5,12 +5,17 @@ import priceToDisplay from "../utils/priceToDisplay";
 //redux
 import { connect, useDispatch } from "react-redux";
 import { getPizzaById } from "../redux/selectors/pizza";
+import { getOrderedPizzaPriceById } from "../redux/selectors/order";
 import { fetchExtraToppings } from "../redux/actions/extraToppings";
 import {
   increaseNumberOfPizzaInOrder,
   decreaseNumberOfPizzaInOrder,
   removePizzaOrder,
 } from "../redux/actions/order";
+//components
+import NumberOfOrderedPizzas from "./NumberOfOrderedPizzas";
+import ExtraToppingsSelect from "./ExtraToppingsSelect";
+import SizeSelect from "./SizeSelect";
 const OrderedPizzaListElement = (props) => {
   const pizza = props.pizza[0] || {
     name: "null",
@@ -18,19 +23,6 @@ const OrderedPizzaListElement = (props) => {
 
     price: -1,
   };
-  const price = props.size
-    ? props.size === "S"
-      ? pizza.price_small
-      : pizza.price_big
-    : null;
-
-  const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch(fetchExtraToppings());
-  }, [dispatch]);
-
-  const { isLoading, dataExtraTopping, error } = props;
-  const isEmpty = dataExtraTopping.length === 0;
 
   return (
     <>
@@ -39,48 +31,15 @@ const OrderedPizzaListElement = (props) => {
       <div className="order-table-cell head">
         <h2>{pizza.name}</h2>
       </div>
+      <ExtraToppingsSelect id={props.id} />
+      <NumberOfOrderedPizzas
+        id={props.id}
+        numberOfPizzas={props.numberOfPizzas}
+      />
+      <SizeSelect id={props.id} />
       <div className="order-table-cell">
-        <select>
-          {isEmpty ? (
-            isLoading ? (
-              <option value={"Loading"}>{"Loading"}</option>
-            ) : (
-              <option value={"Error"}>{"error"}</option>
-            )
-          ) : (
-            props.dataExtraTopping.data.map((extraTopping) => {
-              return (
-                <option value={extraTopping.extra_topping_code}>
-                  {extraTopping.name}
-                </option>
-              );
-            })
-          )}
-        </select>
-      </div>
-      <div className="order-table-cell">
-        <h2>{props.numberOfPizzas}</h2>
-        <h2
-          className="delete-order-bnt change-number-bnt"
-          onClick={() => {
-            console.log("INCREAS");
-            props.increaseNumberOfPizzaInOrder(props.id, 1);
-          }}
-        >
-          +
-        </h2>
-        <h2
-          className="delete-order-bnt change-number-bnt"
-          onClick={() => {
-            if (props.numberOfPizzas > 1)
-              props.decreaseNumberOfPizzaInOrder(props.id, 1);
-          }}
-        >
-          -
-        </h2>
-      </div>
-      <div className="order-table-cell">
-        <h3> {priceToDisplay(price)}</h3>
+        {console.log("OrederPizzaListElement: ", props.price)}
+        <h3> {priceToDisplay(props.price)}</h3>
       </div>
       <div className="order-table-cell">
         <h3
@@ -98,11 +57,9 @@ const mapStateToProps = (state, ownProps) => {
   const id = ownProps.id;
   const pizza = getPizzaById(state, id);
 
-  const dataExtraTopping = state.extraTopping.data;
-  const isLoading = state.extraTopping.isLoading;
-  const error = state.extraTopping.error;
+  const price = getOrderedPizzaPriceById(state, id);
 
-  return { pizza, dataExtraTopping, isLoading, error };
+  return { pizza, price };
 };
 
 export default connect(mapStateToProps, {
