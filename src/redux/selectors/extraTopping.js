@@ -1,4 +1,4 @@
-export const getExtraToppingsState = (store) => store.pizza;
+export const getExtraToppingsState = (store) => store.extraTopping;
 
 export const getExtraToppings = (store) => {
   return getExtraToppingsState(store)
@@ -7,9 +7,14 @@ export const getExtraToppings = (store) => {
 };
 export const getExtraToppingById = (store, id) => {
   // console.log("Selector: extraTopping: getExtraToppings: ", getExtraToppings(store));
-  return getExtraToppings(store).filter(
+  return getExtraToppings(store).find(
     (extraTopping) => extraTopping.extra_topping_code === id
   );
 };
-export const getExtraToppingPriceById = (store, id) =>
-  getExtraToppingById(store, id) ? getExtraToppingById(store, id).price : 0;
+export const getExtraToppingPriceById = (store, id) => {
+  console.log("Selector: extraTopping: ", getExtraToppingById(store, id), id);
+
+  return getExtraToppingById(store, id)
+    ? getExtraToppingById(store, id).price
+    : 0;
+};

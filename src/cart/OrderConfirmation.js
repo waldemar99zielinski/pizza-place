@@ -1,5 +1,9 @@
 import React from "react";
 import "./Cart.css";
+import priceToDisplay from "../utils/priceToDisplay";
+//redux
+import { connect } from "react-redux";
+import { getOrderTotalCost } from "../redux/selectors/order";
 
 const OrderConfirmation = (props) => {
   return (
@@ -11,16 +15,24 @@ const OrderConfirmation = (props) => {
         <h2> </h2>
       </div>
       <div className="order-table-cell sum-up">
+        <h2> </h2>
+      </div>
+      <div className="order-table-cell sum-up">
         <h3>total cost</h3>
       </div>
       <div className="order-table-cell">
-        <h3> {props.totalPrice}</h3>
+        <h3> {priceToDisplay(props.totalPrice)}</h3>
       </div>
       <div className="order-table-cell">
-        <h3 className="delete-order-bnt">CONFIRM ORDER</h3>
+        <h3 className="delete-order-bnt">ORDER</h3>
       </div>
     </div>
   );
 };
 
-export default OrderConfirmation;
+const mapStateToProps = (state) => {
+  const totalPrice = getOrderTotalCost(state);
+  return { totalPrice };
+};
+
+export default connect(mapStateToProps)(OrderConfirmation);

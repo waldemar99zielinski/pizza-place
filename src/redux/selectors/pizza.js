@@ -10,6 +10,7 @@ export const getPizzaById = (store, id) => {
 export const getPizzaPriceById = (store, id, size) => {
   const SMALL = "S";
   const LARGE = "L";
-  const pizza = getPizzaById(store, id);
+  const pizza = getPizzaById(store, id)[0];
+  // console.log("Selector: Pizza getByID: ", pizza);
   return size === SMALL ? pizza.price_small : pizza.price_big;
 };

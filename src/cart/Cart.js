@@ -15,7 +15,7 @@ const Cart = (props) => {
   return (
     <PopUp title={"YOUR CART"} id={POPUP_ID_CART}>
       <OrderedPizzaList pizzaOrders={props.data} />
-      <OrderConfirmation totalPrice={12.69 + " USD"} />
+      <OrderConfirmation />
     </PopUp>
   );
 };
