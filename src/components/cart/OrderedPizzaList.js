@@ -3,7 +3,7 @@ import "./Cart.css";
 import OrderedPizzaListElement from "./OrderedPizzaListElement";
 //redux
 import { connect, useDispatch } from "react-redux";
-import { fetchExtraToppings } from "../redux/actions/extraToppings";
+import { fetchExtraToppings } from "../../redux/actions/extraToppings";
 
 const OrderedPizzaList = (props) => {
   const dispatch = useDispatch();

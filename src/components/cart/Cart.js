@@ -8,8 +8,8 @@ import OrderConfirmation from "./OrderConfirmation";
 
 //redux
 import { connect } from "react-redux";
-import { POPUP_ID_CART } from "../redux/constants/popUpIds";
-import { getOrderedPizzas } from "../redux/selectors/order";
+import { POPUP_ID_CART } from "../../redux/constants/popUpIds";
+import { getOrderedPizzas } from "../../redux/selectors/order";
 
 const Cart = (props) => {
   return (

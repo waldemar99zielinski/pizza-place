@@ -1,9 +1,9 @@
 import React from "react";
 import "./Cart.css";
-import priceToDisplay from "../utils/priceToDisplay";
+import priceToDisplay from "../../utils/priceToDisplay";
 //redux
 import { connect } from "react-redux";
-import { getOrderTotalCost } from "../redux/selectors/order";
+import { getOrderTotalCost } from "../../redux/selectors/order";
 
 const OrderConfirmation = (props) => {
   return (

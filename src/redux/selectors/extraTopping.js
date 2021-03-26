@@ -12,7 +12,7 @@ export const getExtraToppingById = (store, id) => {
   );
 };
 export const getExtraToppingPriceById = (store, id) => {
-  console.log("Selector: extraTopping: ", getExtraToppingById(store, id), id);
+  // console.log("Selector: extraTopping: ", getExtraToppingById(store, id), id);
 
   return getExtraToppingById(store, id)
     ? getExtraToppingById(store, id).price

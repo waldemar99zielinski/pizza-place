@@ -1,10 +1,10 @@
 import React from "react";
 import "./Cart.css";
-import pizzaSizes from "../utils/pizzaSizes";
+import pizzaSizes from "../../utils/pizzaSizes";
 
 //redux
 import { connect } from "react-redux";
-import { setSize } from "../redux/actions/order";
+import { setSize } from "../../redux/actions/order";
 const SizeSelect = (props) => {
   return (
     <div className="order-table-cell">

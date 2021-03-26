@@ -1,8 +1,9 @@
 import "./App.css";
 import { BrowserRouter as Router } from "react-router-dom";
-import Navbar from "./Navbar";
-import PizzaOverView from "./pizzaPanel/PizzaOverView";
-import Cart from "./cart/Cart";
+import Navbar from "./components/navbar/Navbar";
+import PizzaOverView from "./components/pizzaPanel/PizzaOverView";
+import Cart from "./components/cart/Cart";
+import Notification from "./components/notification/index";
 import React, { useState } from "react";
 
 function App() {
@@ -12,6 +13,7 @@ function App() {
         <Navbar />
         <PizzaOverView />
         <Cart />
+        <Notification />
       </div>
     </Router>
   );

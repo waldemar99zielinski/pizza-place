@@ -63,7 +63,7 @@
   .head {
     justify-content: left;
   }
-  .order-table-cell:nth-child(5n) {
+  .order-table-cell:nth-child(6n) {
     width: 100% !important;
     border-bottom: solid white;
   }

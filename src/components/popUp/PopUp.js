@@ -5,8 +5,8 @@ import { FaTimes } from "react-icons/fa";
 
 //redux
 import { connect } from "react-redux";
-import { getIsOpenedPopUpById } from "../redux/selectors/popUp";
-import { closePopUp } from "../redux/actions/popUp";
+import { getIsOpenedPopUpById } from "../../redux/selectors/popUp";
+import { closePopUp } from "../../redux/actions/popUp";
 
 const PopUp = (props) => {
   return (

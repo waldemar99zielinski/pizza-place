@@ -3,7 +3,7 @@ import "./Cart.css";
 
 //redux
 import { connect } from "react-redux";
-import { setExtraToppings } from "../redux/actions/order";
+import { setExtraToppings } from "../../redux/actions/order";
 const ExtraToppingsSelect = (props) => {
   return (
     <div className="order-table-cell">

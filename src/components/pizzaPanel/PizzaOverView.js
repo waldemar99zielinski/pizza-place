@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 
 //redux
 import { connect, useDispatch } from "react-redux";
-import { fetchPizzas } from "../redux/actions/pizza";
+import { fetchPizzas } from "../../redux/actions/pizza";
 
 import PizzaPanel from "./PizzaPanel";
 import "./PizzaPanel.css";

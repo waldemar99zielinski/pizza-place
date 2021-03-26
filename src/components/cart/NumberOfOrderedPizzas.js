@@ -3,12 +3,12 @@ import "./Cart.css";
 
 //redux
 import { connect } from "react-redux";
-import { getPizzaById } from "../redux/selectors/pizza";
-import { fetchExtraToppings } from "../redux/actions/extraToppings";
+import { getPizzaById } from "../../redux/selectors/pizza";
+import { fetchExtraToppings } from "../../redux/actions/extraToppings";
 import {
   increaseNumberOfPizzaInOrder,
   decreaseNumberOfPizzaInOrder,
-} from "../redux/actions/order";
+} from "../../redux/actions/order";
 
 const NumberOfOrderedPizzas = (props) => {
   //   console.log("NumberOfOrderedPizzas: ", props);

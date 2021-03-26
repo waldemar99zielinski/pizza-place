@@ -4,11 +4,13 @@ import { AiFillStar } from "react-icons/ai";
 
 //redux
 import { connect } from "react-redux";
-import { addPizzaOrder } from "../redux/actions/order";
+import { addPizzaOrder } from "../../redux/actions/order";
+import { openNotification } from "../../redux/actions/notification";
 
 const PizzaPanel = (props) => {
   const handleAddOrderElement = () => {
     props.addPizzaOrder(props.id, null, "S", 1);
+    props.openNotification(`${props.name.toUpperCase()} added to cart`);
   };
 
   return (
@@ -38,4 +40,4 @@ const PizzaPanel = (props) => {
   );
 };
 
-export default connect(null, { addPizzaOrder })(PizzaPanel);
+export default connect(null, { addPizzaOrder, openNotification })(PizzaPanel);

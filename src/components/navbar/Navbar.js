@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import "./Navbar.css";
-import logo from "./pizza_logo.svg";
+import logo from "../../assets/pizza_logo.svg";
 import { BiMenu, BiCartAlt } from "react-icons/bi";
 import { NavLink } from "react-router-dom";
 //redux
 import { connect } from "react-redux";
-import { openPopUp } from "./redux/actions/popUp";
-import { POPUP_ID_CART } from "./redux/constants/popUpIds";
+import { openPopUp } from "../../redux/actions/popUp";
+import { POPUP_ID_CART } from "../../redux/constants/popUpIds";
 
 const Navbar = ({ openPopUp }) => {
   const [isMenuShown, setIsMenuShown] = useState(false);

@@ -1,17 +1,17 @@
 import React, { useEffect } from "react";
 
 import "./Cart.css";
-import priceToDisplay from "../utils/priceToDisplay";
+import priceToDisplay from "../../utils/priceToDisplay";
 //redux
 import { connect, useDispatch } from "react-redux";
-import { getPizzaById } from "../redux/selectors/pizza";
-import { getOrderedPizzaPriceById } from "../redux/selectors/order";
-import { fetchExtraToppings } from "../redux/actions/extraToppings";
+import { getPizzaById } from "../../redux/selectors/pizza";
+import { getOrderedPizzaPriceById } from "../../redux/selectors/order";
+import { fetchExtraToppings } from "../../redux/actions/extraToppings";
 import {
   increaseNumberOfPizzaInOrder,
   decreaseNumberOfPizzaInOrder,
   removePizzaOrder,
-} from "../redux/actions/order";
+} from "../../redux/actions/order";
 //components
 import NumberOfOrderedPizzas from "./NumberOfOrderedPizzas";
 import ExtraToppingsSelect from "./ExtraToppingsSelect";
@@ -38,7 +38,7 @@ const OrderedPizzaListElement = (props) => {
       />
       <SizeSelect id={props.id} />
       <div className="order-table-cell">
-        {console.log("OrederPizzaListElement: ", props.price)}
+        {/* {console.log("OrederPizzaListElement: ", props.price)} */}
         <h3> {priceToDisplay(props.price)}</h3>
       </div>
       <div className="order-table-cell">
