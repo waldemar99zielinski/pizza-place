@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import "./notification.css";
 import { FaTimes } from "react-icons/fa";
 
@@ -6,19 +6,27 @@ import { FaTimes } from "react-icons/fa";
 import { connect } from "react-redux";
 import { closeNotification } from "../../redux/actions/notification";
 const NotificationPanel = (props) => {
-  const time = 3000;
+  const [animation, setAnimation] = useState("fade-in");
+
   useEffect(() => {
-    const timer = setTimeout(() => props.closeNotification(props.id), time);
+    const notificationTimer = setTimeout(() => {
+      console.log("NotificationPanel: close not");
+      props.closeNotification(props.id);
+    }, 3000);
+    const animationTimer = setTimeout(() => {
+      console.log("NotificationPanel: change style");
+      setAnimation("fade-out");
+    }, 2500);
     return () => {
-      clearTimeout(timer);
+      clearTimeout(notificationTimer);
+      clearTimeout(animationTimer);
     };
-  });
+  }, []);
 
   return (
-    <div className="notification">
+    <div className={"notification " + animation}>
       <h2 className="notification-message">{props.message}</h2>
       {console.log("Notification id:", props.id)}
-      {/* <FaTimes size={25} className="notification-close" /> */}
     </div>
   );
 };

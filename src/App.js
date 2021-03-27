@@ -4,7 +4,7 @@ import Navbar from "./components/navbar/Navbar";
 import PizzaOverView from "./components/pizzaPanel/PizzaOverView";
 import Cart from "./components/cart/Cart";
 import Notification from "./components/notification/index";
-import React, { useState } from "react";
+import React from "react";
 
 function App() {
   return (

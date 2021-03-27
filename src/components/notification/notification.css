@@ -22,6 +22,30 @@
   top: 10px;
   /* This are approximated values, and the rest of your styling goes here */
 }
+.fade-in {
+  animation: fadeIn ease 0.5s;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+.fade-out {
+  animation: fadeOut ease 0.5s;
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
 @media screen and (max-width: 1000px) {
   .notification {
     width: calc(100% - 2rem);
