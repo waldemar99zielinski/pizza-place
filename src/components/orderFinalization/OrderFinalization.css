@@ -1,0 +1,16 @@
+.order-finalization-container {
+  display: flex;
+  padding: 1rem;
+  justify-content: center;
+}
+.order-finalization-container input {
+  width: 100%;
+  padding: 1rem;
+  display: inline-block;
+
+  border-radius: 0.5rem;
+  box-sizing: border-box;
+}
+.order-finalization-container label {
+  font-size: 1.5rem;
+}

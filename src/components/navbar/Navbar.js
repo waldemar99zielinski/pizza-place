@@ -30,7 +30,9 @@ const Navbar = ({ openPopUp }) => {
 
         <div
           className={
-            isMenuShown ? "nav-links-container" : "nav-links-container hide"
+            isMenuShown
+              ? "nav-links-container show-navbar"
+              : "nav-links-container hide"
           }
         >
           <ul>

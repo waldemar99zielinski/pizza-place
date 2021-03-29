@@ -89,6 +89,19 @@ nav {
   .nav-link:hover {
     color: var(--red-main);
   }
+  .show-navbar {
+    animation: showNavbar 0.5s ease;
+  }
+  @keyframes showNavbar {
+    from {
+      transform: translateY(-100%);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
   .hide {
     display: none;
   }

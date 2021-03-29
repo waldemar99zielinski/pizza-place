@@ -5,7 +5,7 @@ import PizzaOverView from "./components/pizzaPanel/PizzaOverView";
 import Cart from "./components/cart/Cart";
 import Notification from "./components/notification/index";
 import React from "react";
-
+import OrderFinalization from "./components/orderFinalization/index";
 function App() {
   return (
     <Router>
@@ -13,6 +13,7 @@ function App() {
         <Navbar />
         <PizzaOverView />
         <Cart />
+        <OrderFinalization />
         <Notification />
       </div>
     </Router>

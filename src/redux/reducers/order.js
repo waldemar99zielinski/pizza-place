@@ -16,12 +16,7 @@ const reducer = (state = initialState, action) => {
         state.orderedPizzas
           .map((o) => o.pizza_code)
           .indexOf(action.payload.pizza_code) > -1;
-      console.log(
-        "Reducer: order: ",
-        action.payload.pizza_code,
-        ", isIdexisting: ",
-        isIdExisting
-      );
+
       if (isIdExisting) {
         return state;
       } else {

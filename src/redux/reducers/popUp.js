@@ -1,6 +1,6 @@
 import { OPEN_POPUP, CLOSE_POPUP } from "../constants/actionTypes";
-
-const initialState = { openedPopUpsIds: [] };
+import { POPUD_ID_ORDER_FINALIZATION } from "../constants/popUpIds";
+const initialState = { openedPopUpsIds: [POPUD_ID_ORDER_FINALIZATION] };
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
