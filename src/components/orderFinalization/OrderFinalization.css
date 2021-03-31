@@ -1,16 +1,87 @@
-.order-finalization-container {
+.order-finalization-customer-info-container {
   display: flex;
   padding: 1rem;
-  justify-content: center;
+  justify-content: space-evenly;
 }
-.order-finalization-container input {
+.order-finalization-form-container {
+  position: relative;
+  padding: 1rem 0 0;
+  margin-top: 1rem;
+  width: 40%;
+}
+.order-finalization-input {
   width: 100%;
+  border: none;
+  border-bottom: 0.3rem solid;
+  border-image: linear-gradient(to right, var(--red-main), var(--black-main));
+  border-image-slice: 1;
+  outline: none;
+  font-size: 1.3rem;
+  color: var(--white-main);
   padding: 1rem;
-  display: inline-block;
-
-  border-radius: 0.5rem;
-  box-sizing: border-box;
+  background: transparent;
+  transition: border-color 0.2s;
+  user-select: auto;
 }
-.order-finalization-container label {
+.order-finalization-input::placeholder {
+  color: transparent;
+}
+
+.order-finalization-input:placeholder-shown ~ .order-finalization-label {
+  font-size: 1.3rem;
+  cursor: text;
+  top: 1.5rem;
+  color: var(--white-main);
+}
+
+.order-finalization-label {
+  position: absolute;
+  top: -0.4rem;
+  display: block;
+  transition: 0.2s;
+  font-size: 1rem;
+  color: var(--red-main);
+}
+
+.order-finalization-input:focus ~ .order-finalization-label {
+  position: absolute;
+  top: -0.4rem;
+  display: block;
+  padding-bottom: 0.5rem;
+  transition: 0.2s;
+  font-size: 1rem;
+  color: var(--red-main);
+  font-weight: 700;
+}
+.order-finalization-input:focus {
+  font-weight: 700;
+  border-bottom: 0.3rem solid var(--red-main);
+  border-image: none;
+}
+/* reset input */
+.order-finalization-input:required,
+:invalid {
+  box-shadow: none;
+}
+
+.order-finalization-customer-info-container {
   font-size: 1.5rem;
+}
+.order-finalization-order-info-container {
+  display: flex;
+  justify-content: space-evenly;
+}
+.order-finalization-order-info-container form {
+  display: flex;
+  flex-direction: column;
+  font-size: 1.5rem;
+}
+.order-finalization-order-info-container input,
+label {
+  padding: 1rem;
+}
+.order-finalization-address-info-container form {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
 }

@@ -9,9 +9,15 @@ const PhoneNumberInput = () => {
   };
 
   return (
-    <div>
-      <label>Phone:</label>
-      <input type="text" value={input} onChange={(e) => inputHandler(e)} />
+    <div className="order-finalization-form-container">
+      <input
+        type="text"
+        value={input}
+        onChange={(e) => inputHandler(e)}
+        className="order-finalization-input"
+        placeholder=" "
+      />
+      <label className="order-finalization-label">Phone:</label>
     </div>
   );
 };
