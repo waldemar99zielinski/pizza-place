@@ -50,7 +50,7 @@
   cursor: pointer;
 }
 
-@media all and (max-width: 800px) {
+@media screen and (max-width: 800px) {
   .order-table {
     display: flex;
     justify-content: center;
