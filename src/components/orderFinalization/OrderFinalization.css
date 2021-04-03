@@ -97,11 +97,13 @@ label {
   padding: 1rem 0 0;
   margin-top: 1rem;
   width: 40%;
+  left: -1.7rem;
 }
 .order-finalization-radio-title {
   font-size: 1.5rem;
   font-weight: 900;
   text-transform: uppercase;
+  padding: 1.3rem;
 }
 .order-finalization-radio-input {
   position: absolute;
@@ -117,6 +119,7 @@ label {
 .order-finalization-radio-input:checked + .order-finalization-radio-label {
   background: var(--red-main);
   color: var(--white-main);
+  transition: background-color 0.2s linear;
 }
 .order-finalization-radio-label
   + .order-finalization-radio-input
@@ -130,7 +133,7 @@ label {
   border-radius: 0.5rem;
   overflow: hidden;
 }
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 970px) {
   .order-finalization-customer-address-container {
     width: 100%;
     justify-content: center;

@@ -7,7 +7,9 @@ import {
   SET_SIZE,
 } from "../constants/actionTypes";
 
-const initialState = { orderedPizzas: [] };
+const initialState = {
+  orderedPizzas: [],
+};
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {

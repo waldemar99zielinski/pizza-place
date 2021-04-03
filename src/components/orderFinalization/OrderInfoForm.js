@@ -12,7 +12,7 @@ const OrderInfoForm = () => {
             id="yes"
             name="delivery"
           />
-          <label className="order-finalization-radio-label" for="yes">
+          <label className="order-finalization-radio-label" htmlFor="yes">
             YES
           </label>
           <input
@@ -21,7 +21,7 @@ const OrderInfoForm = () => {
             id="no"
             name="delivery"
           />
-          <label className="order-finalization-radio-label" for="no">
+          <label className="order-finalization-radio-label" htmlFor="no">
             NO
           </label>
         </div>
@@ -35,8 +35,8 @@ const OrderInfoForm = () => {
             id="money"
             name="payment"
           />
-          <label className="order-finalization-radio-label" for="money">
-            READY MONEY
+          <label className="order-finalization-radio-label" htmlFor="money">
+            MONEY
           </label>
           <input
             className="order-finalization-radio-input"
@@ -44,7 +44,7 @@ const OrderInfoForm = () => {
             id="card"
             name="payment"
           />
-          <label className="order-finalization-radio-label" for="card">
+          <label className="order-finalization-radio-label" htmlFor="card">
             CARD
           </label>
         </div>

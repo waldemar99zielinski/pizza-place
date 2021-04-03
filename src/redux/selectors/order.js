@@ -1,6 +1,6 @@
 import { getPizzaPriceById } from "./pizza";
 import { getExtraToppingPriceById } from "./extraTopping";
-import { connect } from "react-redux";
+
 export const getOrderedPizzasState = (store) => store.order;
 
 export const getOrderedPizzas = (store) =>
@@ -27,14 +27,7 @@ export const getOrderedPizzaPriceById = (store, id) => {
     store,
     order.extra_topping_code
   );
-  // console.log(
-  //   "Selector: order: pirce: ",
-  //   pizzaPrice,
-  //   " ",
-  //   extraToppingPrice,
-  //   " total: ",
-  //   Number(pizzaPrice) + Number(extraToppingPrice)
-  // );
+
   return order.numberOf * (Number(pizzaPrice) + Number(extraToppingPrice));
 };
 
@@ -42,6 +35,6 @@ export const getOrderTotalCost = (store) => {
   const orderPrices = getOrderedPizzas(store).map((o) =>
     getOrderedPizzaPriceById(store, o.pizza_code)
   );
-  console.log("Selector: order: pirce: ", orderPrices);
+  // console.log("Selector: order: pirce: ", orderPrices);
   return orderPrices.reduce((a, b) => a + b, 0);
 };
