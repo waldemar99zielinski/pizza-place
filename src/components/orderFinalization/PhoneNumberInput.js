@@ -1,18 +1,21 @@
 import React, { useState } from "react";
 
-const PhoneNumberInput = () => {
-  const [input, setInput] = useState("");
+//redux
+import { connect } from "react-redux";
+import { getPhone } from "../../redux/selectors/orderInfo";
+import { setPhone } from "../../redux/actions/orderInfo";
 
+const PhoneNumberInput = (props) => {
   const inputHandler = (e) => {
     const validInput = validatePhoneNumber(e.target.value);
-    setInput(validInput);
+    props.setPhone(validInput);
   };
 
   return (
     <div className="order-finalization-form-container">
       <input
         type="text"
-        value={input}
+        value={props.phone}
         onChange={(e) => inputHandler(e)}
         className="order-finalization-input"
         placeholder=" "
@@ -37,5 +40,9 @@ const validatePhoneNumber = (number) => {
     6
   )}-${validPhoneNumber.slice(6, 9)}`;
 };
+const mapStateToProps = (state) => {
+  const phone = getPhone(state);
+  return { phone };
+};
 
-export default PhoneNumberInput;
+export default connect(mapStateToProps, { setPhone })(PhoneNumberInput);

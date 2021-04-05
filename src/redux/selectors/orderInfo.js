@@ -1,28 +1,28 @@
 export const getName = (store) => {
-  return store.order.orderInfo.customer.name;
+  return store.orderInfo.customer.name;
 };
 
 export const getPhone = (store) => {
-  return store.order.orderInfo.customer.phone;
+  return store.orderInfo.customer.phone;
 };
 
 export const getDelivery = (store) => {
-  return store.order.orderInfo.order.delivery;
+  return store.orderInfo.order.delivery;
 };
 
 export const getPayment = (store) => {
-  return store.order.orderInfo.order.payment;
+  return store.orderInfo.order.payment;
 };
 
 export const getAddressCity = (store) => {
-  return store.order.orderInfo.address.city;
+  return store.orderInfo.address.city;
 };
 export const getAddressStreet = (store) => {
-  return store.order.orderInfo.address.street;
+  return store.orderInfo.address.street;
 };
 export const getAddressStreetNo = (store) => {
-  return store.order.orderInfo.address.streetNo;
+  return store.orderInfo.address.streetNo;
 };
 export const getAddressApartmentNo = (store) => {
-  return store.order.orderInfo.address.apartmentNo;
+  return store.orderInfo.address.apartmentNo;
 };
