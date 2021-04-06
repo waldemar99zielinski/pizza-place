@@ -15,6 +15,7 @@ import {
   getAddressStreetNo,
   getAddressApartmentNo,
   getDelivery,
+  getIsValidating,
 } from "../../redux/selectors/orderInfo";
 const AddressForm = (props) => {
   const DELIVERY_YES = "Y";
@@ -28,7 +29,13 @@ const AddressForm = (props) => {
           : "order-finalization-address-info-container-hidden"
       }
     >
-      <div className="order-finalization-form-container">
+      <div
+        className={
+          props.isValidating && props.city.length <= 0
+            ? "order-finalization-form-container shake-animation"
+            : "order-finalization-form-container"
+        }
+      >
         <input
           className="order-finalization-input"
           placeholder=" "
@@ -37,7 +44,13 @@ const AddressForm = (props) => {
         />
         <label className="order-finalization-label">City</label>
       </div>
-      <div className="order-finalization-form-container">
+      <div
+        className={
+          props.isValidating && props.street.length <= 0
+            ? "order-finalization-form-container shake-animation"
+            : "order-finalization-form-container"
+        }
+      >
         <input
           className="order-finalization-input"
           placeholder=" "
@@ -46,7 +59,13 @@ const AddressForm = (props) => {
         />
         <label className="order-finalization-label">Street</label>
       </div>
-      <div className="order-finalization-form-container">
+      <div
+        className={
+          props.isValidating && props.streetNo.length <= 0
+            ? "order-finalization-form-container shake-animation"
+            : "order-finalization-form-container"
+        }
+      >
         <input
           className="order-finalization-input"
           placeholder=" "
@@ -85,7 +104,8 @@ const mapStateToProps = (state) => {
   const streetNo = getAddressStreetNo(state);
   const appartmentNo = getAddressApartmentNo(state);
   const delivery = getDelivery(state);
-  return { city, street, streetNo, appartmentNo, delivery };
+  const isValidating = getIsValidating(state);
+  return { city, street, streetNo, appartmentNo, delivery, isValidating };
 };
 
 export default connect(mapStateToProps, {

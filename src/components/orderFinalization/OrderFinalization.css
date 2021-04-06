@@ -10,6 +10,11 @@
   margin-top: 1rem;
   width: 40%;
 }
+.shake-animation {
+  animation: shake 0.8s ease-in-out both;
+  transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
+}
 .order-finalization-input {
   border: none;
   border-bottom: 0.3rem solid;
@@ -137,6 +142,27 @@ label {
   border-radius: 0.5rem;
   overflow: hidden;
 }
+/*Buttons*/
+.buttons-container {
+  display: flex;
+  margin: 0.5rem;
+  justify-content: flex-end;
+}
+.button {
+  clear: both;
+  border-radius: 0.5rem;
+  margin-left: 2rem;
+  padding: 0.5rem;
+  transition: all 0.2s ease;
+  color: var(--white-main);
+}
+.button ~ .button {
+  margin-right: 27%;
+}
+.button:hover {
+  background-color: var(--red-main);
+  cursor: pointer;
+}
 @media screen and (max-width: 970px) {
   .order-finalization-customer-address-container {
     width: 100%;
@@ -149,6 +175,7 @@ label {
     width: 100%;
     justify-content: center;
   }
+
   .order-finalization-address-info-container {
     width: 90%;
     justify-content: center;
@@ -169,5 +196,36 @@ label {
   .order-finalization-radio-group {
     width: auto;
     display: flex;
+  }
+  /*buttons*/
+  .buttons-container {
+    justify-content: center;
+  }
+  .button ~ .button {
+    margin-right: 0;
+  }
+}
+
+/*animation*/
+@keyframes shake {
+  10%,
+  90% {
+    transform: translate3d(-0.5px, 0, 0);
+  }
+
+  20%,
+  80% {
+    transform: translate3d(2px, 0, 0);
+  }
+
+  30%,
+  50%,
+  70% {
+    transform: translate3d(-3px, 0, 0);
+  }
+
+  40%,
+  60% {
+    transform: translate3d(3px, 0, 0);
   }
 }

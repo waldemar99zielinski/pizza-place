@@ -7,9 +7,12 @@ import {
   SET_ADDRESS_STREET_NO,
   SET_ADRESS_CITY,
   SET_ADDRESS_APARTMENT_NO,
+  CLEAR_ORDER_INFO,
+  SET_ORDER_INFO_VALIDATION,
 } from "../constants/actionTypes";
 
 const initialState = {
+  validate: false,
   customer: { name: "", phone: "" },
   order: { delivery: "", payment: "" },
   address: { city: "", street: "", streetNo: "", apartmentNo: "" },
@@ -17,6 +20,15 @@ const initialState = {
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
+    case CLEAR_ORDER_INFO:
+      return {
+        ...initialState,
+      };
+    case SET_ORDER_INFO_VALIDATION:
+      return {
+        ...state,
+        validate: action.payload.isValidating,
+      };
     case SET_NAME:
       return {
         ...state,

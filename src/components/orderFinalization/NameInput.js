@@ -1,7 +1,8 @@
 import React, { useState } from "react";
+import "./OrderFinalization.css";
 //redux
 import { connect } from "react-redux";
-import { getName } from "../../redux/selectors/orderInfo";
+import { getName, getIsValidating } from "../../redux/selectors/orderInfo";
 import { setName } from "../../redux/actions/orderInfo";
 const NameInput = (props) => {
   const NAME_MAX_LENGTH = 50;
@@ -17,7 +18,13 @@ const NameInput = (props) => {
   };
 
   return (
-    <div className="order-finalization-form-container">
+    <div
+      className={
+        props.isValidating && props.name.length <= 0
+          ? "order-finalization-form-container shake-animation"
+          : "order-finalization-form-container"
+      }
+    >
       <input
         type="text"
         value={props.name}
@@ -32,7 +39,8 @@ const NameInput = (props) => {
 
 const mapStateToProps = (state) => {
   const name = getName(state);
-  return { name };
+  const isValidating = getIsValidating(state);
+  return { name, isValidating };
 };
 
 export default connect(mapStateToProps, { setName })(NameInput);

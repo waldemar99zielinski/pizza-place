@@ -2,7 +2,7 @@ import React, { useState } from "react";
 
 //redux
 import { connect } from "react-redux";
-import { getPhone } from "../../redux/selectors/orderInfo";
+import { getPhone, getIsValidating } from "../../redux/selectors/orderInfo";
 import { setPhone } from "../../redux/actions/orderInfo";
 
 const PhoneNumberInput = (props) => {
@@ -12,7 +12,13 @@ const PhoneNumberInput = (props) => {
   };
 
   return (
-    <div className="order-finalization-form-container">
+    <div
+      className={
+        props.isValidating && props.phone.length <= 0
+          ? "order-finalization-form-container shake-animation"
+          : "order-finalization-form-container"
+      }
+    >
       <input
         type="text"
         value={props.phone}
@@ -42,7 +48,8 @@ const validatePhoneNumber = (number) => {
 };
 const mapStateToProps = (state) => {
   const phone = getPhone(state);
-  return { phone };
+  const isValidating = getIsValidating(state);
+  return { phone, isValidating };
 };
 
 export default connect(mapStateToProps, { setPhone })(PhoneNumberInput);

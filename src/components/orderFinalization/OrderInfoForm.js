@@ -2,13 +2,24 @@ import React from "react";
 
 //redux
 import { connect } from "react-redux";
-import { getDelivery, getPayment } from "../../redux/selectors/orderInfo";
+import {
+  getDelivery,
+  getPayment,
+  getIsValidating,
+} from "../../redux/selectors/orderInfo";
 import { setDelivery, setPayment } from "../../redux/actions/orderInfo";
 
 const OrderInfoForm = (props) => {
+  // console.log("Radio input: ", props.isValidating, " ", props.delivery.length);
   return (
     <form className="order-finalization-order-info">
-      <div className="order-finalization-radio-container">
+      <div
+        className={
+          props.isValidating && props.delivery.length <= 0
+            ? "order-finalization-radio-container shake-animation"
+            : "order-finalization-radio-container"
+        }
+      >
         <label className="order-finalization-radio-title">DELIVERY</label>
         <div className="order-finalization-radio-group">
           <input
@@ -33,7 +44,13 @@ const OrderInfoForm = (props) => {
           </label>
         </div>
       </div>
-      <div className="order-finalization-radio-container">
+      <div
+        className={
+          props.isValidating && props.payment.length <= 0
+            ? "order-finalization-radio-container shake-animation"
+            : "order-finalization-radio-container"
+        }
+      >
         <label className="order-finalization-radio-title">payment</label>
         <div className="order-finalization-radio-group">
           <input
@@ -65,7 +82,10 @@ const OrderInfoForm = (props) => {
 const mapStateToProps = (state) => {
   const payment = getPayment(state);
   const delivery = getDelivery(state);
-  return { payment, delivery };
+  const isValidating = getIsValidating(state);
+  return { payment, delivery, isValidating };
 };
 
-export default connect(null, { setPayment, setDelivery })(OrderInfoForm);
+export default connect(mapStateToProps, { setPayment, setDelivery })(
+  OrderInfoForm
+);

@@ -1,4 +1,5 @@
 import {
+  CLEAR_ORDER_INFO,
   SET_NAME,
   SET_PHONE,
   SET_PAYMENT,
@@ -7,8 +8,17 @@ import {
   SET_ADDRESS_STREET_NO,
   SET_ADRESS_CITY,
   SET_ADDRESS_APARTMENT_NO,
+  SET_ORDER_INFO_VALIDATION,
 } from "../constants/actionTypes";
-
+export const setOrderInfoValidation = (isValidating) => ({
+  type: SET_ORDER_INFO_VALIDATION,
+  payload: {
+    isValidating,
+  },
+});
+export const clearOrderInfo = () => ({
+  type: CLEAR_ORDER_INFO,
+});
 export const setName = (name) => ({
   type: SET_NAME,
   payload: {

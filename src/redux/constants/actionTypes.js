@@ -8,6 +8,8 @@ export const DECREASE_NUMBER_OF_PIZZA_IN_ORDER =
 export const SET_EXTRA_TOPPINGS = "SET_EXTRA_TOPPINGS";
 export const SET_SIZE = "SET_SIZE";
 //orderInfo
+export const CLEAR_ORDER_INFO = "CLEAR_ORDER_INFO";
+export const SET_ORDER_INFO_VALIDATION = "SET_ORDER_INFO_VALIDATION";
 export const SET_NAME = "SET_NAME";
 export const SET_PHONE = "SET_PHONE";
 export const SET_DELIVERY = "SET_DELIVERY";

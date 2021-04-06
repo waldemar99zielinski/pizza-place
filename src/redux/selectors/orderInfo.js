@@ -1,3 +1,7 @@
+export const getOrderInfo = (store) => {
+  return store.orderInfo;
+};
+
 export const getName = (store) => {
   return store.orderInfo.customer.name;
 };
@@ -25,4 +29,7 @@ export const getAddressStreetNo = (store) => {
 };
 export const getAddressApartmentNo = (store) => {
   return store.orderInfo.address.apartmentNo;
+};
+export const getIsValidating = (store) => {
+  return store.orderInfo.validate;
 };
