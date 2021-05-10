@@ -2,12 +2,12 @@ import React, { useState } from "react";
 import "./Navbar.css";
 import logo from "../../assets/pizza_logo.svg";
 import { BiMenu, BiCartAlt } from "react-icons/bi";
-import { NavLink } from "react-router-dom";
 //redux
 import { connect } from "react-redux";
 import { openPopUp } from "../../redux/actions/popUp";
 import { POPUP_ID_CART } from "../../redux/constants/popUpIds";
-
+//router
+import { NavLink, Link } from "react-router-dom";
 const Navbar = ({ openPopUp }) => {
   const [isMenuShown, setIsMenuShown] = useState(false);
   const toggleMenu = () => {
@@ -37,13 +37,13 @@ const Navbar = ({ openPopUp }) => {
         >
           <ul>
             <li>
-              <NavLink className="nav-link" to="/asd">
-                Page1
+              <NavLink className="nav-link" to="/">
+                Menu
               </NavLink>
             </li>
             <li>
-              <NavLink className="nav-link" to="/">
-                Page2
+              <NavLink className="nav-link" to="/about-us">
+                About us
               </NavLink>
             </li>
             <li>

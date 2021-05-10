@@ -1,0 +1,16 @@
+.about-us-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  align-items: center;
+  /* justify-content: space-between; */
+  /* background-color: rgba(0, 0, 0, 0.5); */
+}
+.about-us-container p {
+  color: var(--white-main);
+}
+.about-us-container h2,
+p {
+  background-color: rgba(0, 0, 0, 0.5);
+}

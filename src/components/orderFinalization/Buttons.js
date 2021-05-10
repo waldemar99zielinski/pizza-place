@@ -1,6 +1,6 @@
 import React from "react";
 import "./OrderFinalization.css";
-
+import axios from "axios";
 //redux
 import { connect } from "react-redux";
 import {
@@ -12,8 +12,10 @@ const Buttons = (props) => {
   const submitOrder = () => {
     props.setOrderInfoValidation(true);
     setTimeout(() => props.setOrderInfoValidation(false), 1000);
-    console.log("submit: ", props.orderInfo);
+    console.log("INFO: ", isAllInfoFilled(props.orderInfo));
   };
+
+  const sendPostRequest = async (info) => {};
 
   return (
     <div className="buttons-container">
@@ -25,6 +27,31 @@ const Buttons = (props) => {
       </h3>
     </div>
   );
+};
+
+//check wheather all neccessary field are filled
+const isAllInfoFilled = (info) => {
+  if (
+    info.customer.name.length > 0 &&
+    info.customer.phone.length === 11 &&
+    info.order.delivery.length > 0 &&
+    info.order.payment.length > 0
+  ) {
+    if (info.order.delivery == "Y") {
+      if (
+        info.address.city.length > 0 &&
+        info.address.street.length > 0 &&
+        info.address.streetNo.length > 0
+      ) {
+        return true;
+      } else {
+        return false;
+      }
+    } else {
+      return true;
+    }
+  }
+  return false;
 };
 
 const mapStateToProps = (state) => {

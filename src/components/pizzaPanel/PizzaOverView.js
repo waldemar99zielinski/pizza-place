@@ -20,7 +20,7 @@ const PizzaOverView = (props) => {
         isLoading ? (
           <h2>Loading...</h2>
         ) : (
-          <h2>Empty.</h2>
+          <h2>Something went wrong :o</h2>
         )
       ) : (
         data.data.map((pizza) => {
