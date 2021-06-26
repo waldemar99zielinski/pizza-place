@@ -1,0 +1,53 @@
+.notification {
+  position: fixed;
+  width: 25%;
+  bottom: 1%;
+  left: 70%;
+  background-color: black;
+  display: flex;
+  border-radius: 0.5rem;
+
+  box-shadow: 0px 0px 20px var(--white-main);
+}
+.notification-message {
+  padding: 1rem;
+  text-align: center;
+  width: 100%;
+}
+.notification-close {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  /* This are approximated values, and the rest of your styling goes here */
+}
+.fade-in {
+  animation: fadeIn ease 0.5s;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+.fade-out {
+  animation: fadeOut ease 0.5s;
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+@media screen and (max-width: 1000px) {
+  .notification {
+    width: calc(100% - 2rem);
+    left: 0rem;
+    margin: 0 1rem;
+  }
+}

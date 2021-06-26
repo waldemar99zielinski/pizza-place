@@ -3,9 +3,28 @@ import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./App";
 
+//redux
+import { Provider } from "react-redux";
+// import store from "./redux/store";
+
+import { createStore, applyMiddleware, compose } from "redux";
+import reducers from "./redux/reducers/index";
+import thunk from "redux-thunk";
+
+const store = createStore(
+  reducers,
+  compose(
+    applyMiddleware(thunk),
+    typeof window.__REDUX_DEVTOOLS_EXTENSION__ === "undefined"
+      ? (a) => a
+      : window.__REDUX_DEVTOOLS_EXTENSION__ &&
+          window.__REDUX_DEVTOOLS_EXTENSION__()
+  )
+);
+
 ReactDOM.render(
-  <React.StrictMode>
+  <Provider store={store}>
     <App />
-  </React.StrictMode>,
+  </Provider>,
   document.getElementById("root")
 );

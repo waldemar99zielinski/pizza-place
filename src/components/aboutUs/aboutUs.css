@@ -1,0 +1,40 @@
+.about-us-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  /* justify-content: space-between; */
+  /* background-color: rgba(0, 0, 0, 0.5); */
+}
+.about-us-container section {
+  display: flex;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 0.5rem;
+  padding: 1rem;
+  margin: 0.5rem;
+}
+.about-us-container section:hover {
+  box-shadow: 5px 10px;
+}
+.about-us-container section div {
+  width: 80%;
+  padding: 0.2rem;
+}
+.about-us-container section img {
+  width: 20%;
+  margin: 0.5rem;
+}
+.about-us-container section p {
+  color: var(--white-main);
+  text-align: justify;
+  text-justify: inter-word;
+}
+.about-us-buttons {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+}
