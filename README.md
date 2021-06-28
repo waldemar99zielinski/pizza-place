@@ -1,6 +1,7 @@
 # Pizza place
 
-React Web App with pure CSS
+React Web App for pizza place with basic ordering functionality. 
+Basic REST API with SQL database.
 
 ## Available Scripts
 
